@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-do list aplication</title>
     <link rel="stylesheet" href="/css/index.css">
-    <script src="/javascript/index.js"></script>
+    <script src="/javascript/index.js" defer></script>
 
 </head>
 <body>
@@ -13,12 +13,16 @@
 
     <h1>My todo List</h1>
 
-    <form>
+    <form id="todo-form">
 
-        <button type="submit"> ADD Button</button>
-        <input type="text">
+        <input id="todo-input" type="text" placeholder=" Put your task here! ">
+        <button id="add-button" type="submit">Add task</button>
 
     </form>    
+
+    <div id="tasks"></div>
+    <div id="todo-list"></div>
+
 
 </body>
 </html>
