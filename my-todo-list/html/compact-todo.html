@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo-list aplication for my girlfriend to see</title>
+</head>
+<body>
+
+    <style>
+
+body {
+
+font-family: 'Yu Gothic', sans serif;
+/*Provisory centering*/
+text-align: center;
+}
+
+li {
+
+list-style-type: none;
+
+}
+
+#add-button {
+
+
+  background-color: #c2fbd7;
+  border-radius: 100px;
+  box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px;
+  color: green;
+  cursor: pointer;
+  display: inline-block;
+  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+  padding: 7px 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 250ms;
+  border: 0;
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+#add-button:hover {
+  box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,rgba(44,187,99,.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
+  transform: scale(1.05) rotate(-1deg);
+}
+
+.input-field {
+
+    width: 200px;
+    height: 30px;
+
+    margin: 20px;
+    padding: 3px;
+    border-radius: 15px;
+}
+
+
+#tasks {
+
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: space-between;
+}
+
+#todo-item{
+
+background-color: aquamarine;
+padding: 20px;
+margin: 50px;
+width: 500px;    
+color: green;
+background-color: #c2fbd7;
+
+
+}
+
+.remove-button {
+
+border-radius: 10px;
+padding: 12px;
+margin: 15px;
+}
+
+.edit-button {
+
+
+border-radius: 10px;
+padding: 12px;
+margin: 15px;
+
+}
+h2 {
+            background-color: #ffcccc; /* Pink background color */
+            border-radius: 20px; /* Rounded corners */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+            color: #ff69b4; /* Pink text color (adjust as needed) */
+            font-family: 'CerebriSans-Regular', sans-serif; /* Font family */
+            padding: 10px 20px; /* Padding */
+            text-align: center; /* Center text */
+            text-decoration: none; /* Remove underline if used as a link */
+            transition: all 0.3s; /* Smooth transition */
+            cursor: pointer; /* Cursor style */
+            display: inline-block; /* Display as block */
+            font-size: 24px; /* Font size */
+            margin: 20px 0; /* Margin top and bottom */
+            user-select: none; /* Disable text selection */
+        }
+        
+        h2:hover {
+            transform: scale(1.05); /* Scale effect on hover */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Increased shadow on hover */
+        }
+    </style>
+
+<h2>Compacted version for my future girlfriend to see &#x2764 </h2>
+    <h1>My todo List</h1>
+    
+
+    <form id="todo-form">
+
+        <input id="todo-input" type="text" placeholder=" Put your task here! ">
+        <button id="add-button" type="submit">Add task</button>
+
+    </form>    
+
+    <div id="tasks"></div>
+    <div id="todo-list"></div>
+
+
+    <script>
+        const todoForm = document.getElementById('todo-form');
+        const todoInput = document.getElementById('todo-input');
+        const todoList = document.getElementById('todo-list');
+        
+        
+        
+        
+        function clearInput() {
+        
+            todoInput.value = ''; 
+        
+        }
+        
+        
+        
+        function addButton(newTask) {
+            const todoItem = document.createElement('li');
+            todoItem.textContent = newTask;
+            todoList.appendChild(todoItem);
+        
+            const removeButton = document.createElement('button')
+            removeButton.textContent = 'Remove task'
+            todoItem.appendChild(removeButton);
+        
+                removeButton.addEventListener('click', function (){
+        
+                    todoItem.remove();
+                    removeButton.remove();
+                    
+                    
+        
+                    })
+        
+        
+        }
+        
+        
+        
+        todoForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const newTask = todoInput.value.trim();
+        
+            if (newTask !== '') {
+        
+                    addButton(newTask);
+                    clearInput();
+            }
+        
+        })
+        
+            </script>
+
+</body>
+</html>
+
